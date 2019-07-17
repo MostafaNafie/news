@@ -48,6 +48,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         News news = mNewsList.get(position);
         holder.titleTextView.setText(news.getName());
         holder.sectionTextView.setText(news.getSection());
+        holder.authorTextView.setText(news.getAuthor());
 
         // Display the date
         String dateStr = news.getDate();
@@ -60,7 +61,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
         String newDateStr = curFormater.format(dateObj);
         holder.dateTextView.setText(newDateStr);
-
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +89,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView titleTextView;
         @BindView(R.id.textView_section)
         TextView sectionTextView;
+        @BindView(R.id.textView_author)
+        TextView authorTextView;
         @BindView(R.id.textView_date)
         TextView dateTextView;
 

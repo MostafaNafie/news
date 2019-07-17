@@ -157,8 +157,18 @@ public final class Query {
                 String section = c.getString("sectionName");
                 String date = c.getString("webPublicationDate");
                 String url = c.getString("webUrl");
+
+                String author;
+                try {
+                    JSONArray tags = c.getJSONArray("tags");
+                    JSONObject d = tags.getJSONObject(0);
+                    author = d.getString("webTitle");
+                } catch(Exception e) {
+                    author = "Unknown Author";
+                }
+
                 // Initialize an object
-                News news = new News(title, section, date, url);
+                News news = new News(title, section, author, date, url);
                 // adding the object to the list
                 newsList.add(news);
             }

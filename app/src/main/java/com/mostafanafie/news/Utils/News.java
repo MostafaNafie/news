@@ -4,13 +4,15 @@ public class News {
 
     private String mTitle;
     private String mSection;
+    private String mAuthor;
     private String mDate;
     private String mUrl;
 
     // Constructor
-    public News(String title, String section, String date, String url) {
+    public News(String title, String section, String author, String date, String url) {
         mTitle = title;
         mSection = section;
+        mAuthor = author;
         mDate = date;
         mUrl = url;
     }
@@ -23,6 +25,11 @@ public class News {
     // Return the section
     public String getSection() {
         return mSection;
+    }
+
+    // Return the author
+    public String getAuthor() {
+        return mAuthor;
     }
 
     // Return the date

@@ -69,8 +69,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Uri uri = Uri.parse(news.getUrl());
                 // Create a new intent to view the URI
                 Intent websiteIntent = new Intent(Intent.ACTION_VIEW, uri);
-                // Send the intent to launch a new activity
-                mContext.startActivity(websiteIntent);
+                if (websiteIntent.resolveActivity(mContext.getPackageManager()) != null) {
+                    // Send the intent to launch a new activity
+                    mContext.startActivity(websiteIntent);
+                }
             }
         });
     }
